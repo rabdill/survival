@@ -1,12 +1,12 @@
 function startAutomation() {
 	// ** EDIT THIS LINE TO ENTER DEBUG MODE **
-	debugMode = false;
+	debugMode = true;
 
 	// Edit this line to start the game in a different location:
-	//moveLocation="copy room";
+	moveLocation=undefined;
 	commands = [
 	// Enter the test commands to be entered sequentially here:
-		
+		"go east"
 	];
 
 	if (debugMode) {
@@ -19,7 +19,7 @@ function startAutomation() {
 		for (var i = 0; i < commands.length; i++) {
 			console.log("DEBUG MODE: Sending command \"" + commands[i] + "\"");
 			document.getElementById("command").value = commands[i];
-			document.getElementById("submit").click();
+			document.getElementById("sendCommand").click();
 		}
 		console.log("DEBUG MODE: Simulated actions complete.")
 	}
