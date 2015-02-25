@@ -1,7 +1,8 @@
 currentLocation="foyer";
 
 player={
-	"inventory" : {}
+	"inventory" : {},
+	"carrying" : []
 }
 
 game={
@@ -36,6 +37,7 @@ rooms={
 		"items" : {
 			"photo" : {
 				"name" : "photograph of neighbor's family",
+				"id" : "neighbor photo",
 				"status" : "default",
 				"messages" : {
 						"take" : "You won't need that for anything.",
@@ -43,13 +45,29 @@ rooms={
 				},
 				"states" : {
 					"default" : {
-						"descriptor" : "A photo sits in a broken frame on a nearby table."
+						"descriptor" : "A photo sits in a dingy frame on a nearby table."
 					},
 					"smash" : {
 						"descriptor" : "The shattered remains of a picture frame are on the floor here.",
 						"from" : {
 							"default" : "You bash the frame against the table; its glass breaks into even more pieces and falls to the floor. You snap the frame in half and drop that nearby."
 						}
+					}
+				}
+			},
+			"shovel" : {
+				"name" : "shovel",
+				"id" : "living room shovel",
+				"status" : "default",
+				"messages" : {
+						"examine" : "A medium-sized shovel, light enough to carry around but heavy enough to complete most shovel-tasks."
+				},
+				"take" : {
+					"default" : "You take the shovel. It's lighter than you expected it to be, and easy to carry."
+				},
+				"states" : {
+					"default" : {
+						"descriptor" : "A shovel leans against the couch."
 					}
 				}
 			}
