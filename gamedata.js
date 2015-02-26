@@ -70,18 +70,88 @@ rooms={
 						"descriptor" : "A shovel leans against the couch."
 					}
 				}
+			},
+			"pile" : {
+				"name" : "pile of junk",
+				"id" : "living room pile",
+				"status" : "default",
+				"messages" : {
+						"examine" : "It's a big mound of material from broken wall, caved-in ceiling and simple household trash. Some of it fell here, but much looks to have been piled on purpose."
+				},
+				"states" : {
+					"default" : {
+						"descriptor" : "To the north, a huge pile of rubble blocks what looks like it might be a doorway."
+					},
+					"move" : {
+						"descriptor" : "Trash and drywall is strewn around in front of the doorway.",
+						"from" : {
+							"default" : "You slowly push your way through the junk, tossing the little stuff aside and shoving the big pieces with your foot. Soon, the doorway is opened up."
+						},
+						"changes" : [
+							["rooms","living room","exits","north","dining room"]
+						]
+					}
+				}
 			}
 		},
 		"synonyms" : {
 			"items" : {
-				"photo" : ["picture","frame"]
+				"photo" : ["picture","frame"],
+				"pile" : ["trash","rubble"]
 			},
 			"actions" : {
-				"smash" : ["break","bash"]
+				"smash" : ["break","bash"],
+				"move" : [""]
 			}
 		},
 		"title" : "@home base@"
-	}
+	},
+	"dining room" : {
+		"type" : "room",
+		"name" : "the dining room",
+		"exits": {
+			"south": "living room"
+		},
+		"entrance text" : "You're in the dining room. Faded floral wallpaper dangles from the walls.",
+		"title" : "@home base@",
+		"items" : {
+			"table" : {
+				"name" : "dining room table",
+				"id" : "dining room table",
+				"status" : "default",
+				"messages" : {
+					"examine" : "A heavy wooden table, stained dark brown beneath a thin coating of dust and ash.",
+					"take" : "It's a table. It's not going anywhere."
+				},
+				"states" : {
+					"default" : {
+						"descriptor" : "An ornately carved table sits in the middle of the room, its top gouged and pock-marked by the shelling."
+					}
+				}
+			},
+			"can" : {
+				"name" : "can of food",
+				"id" : "dining room can1",
+				"status" : "default",
+				"messages" : {
+						"examine" : "Bush's baked beans. The vegetarian variety."
+				},
+				"take" : {
+					"default" : "You toss the can in your pack."
+				},
+				"states" : {
+					"default" : {
+						"descriptor" : "A can of beans is on the table."
+					}
+				}
+			}
+		},
+		"synonyms" : {
+			"items" : {
+				"can" : ["beans","food"]
+			}
+		}
+	},
 
 	/*
 
