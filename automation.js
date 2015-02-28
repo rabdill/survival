@@ -6,7 +6,11 @@ function startAutomation() {
 	moveLocation=undefined;
 	commands = [
 	// Enter the test commands to be entered sequentially here:
-		"go east"
+		"go east",
+		"move pile",
+		"go north",
+		"go east",
+		"flip switch"
 	];
 
 	if (debugMode) {

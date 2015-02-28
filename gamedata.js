@@ -110,7 +110,8 @@ rooms={
 		"type" : "room",
 		"name" : "the dining room",
 		"exits": {
-			"south": "living room"
+			"south": "living room",
+			"east" : "kitchen"
 		},
 		"entrance text" : "You're in the dining room. Faded floral wallpaper dangles from the walls.",
 		"title" : "@home base@",
@@ -152,54 +153,63 @@ rooms={
 			}
 		}
 	},
-
-	/*
-
-
-
-
-		"title" : "@hometown@ Town Square",
-		"entrance text" : "You are in the @hometown@ town square, which is bustling with activity. All seems well.",
+	"kitchen" : {
+		"type" : "room",
+		"name" : "the kitchen",
+		"exits": {
+			"west" : "dining room"
+		},
+		"entrance text" : "You're in the kitchen. The window is boarded up, so it's quite dark. You can make out the outline of a stove and a refrigerator in the darkness - neither have their doors.",
+		"alt text" : "You're in the kitchen. The window is boarded up, but a dim yellow light provides enough light to see. A stove and a fridge are pretty much the only appliances around - neither have their doors.",
+		"title" : "@home base@",
 		"items" : {
-			"pumpkin" : {
-				"name" : "pumpkin",
+			"switch" : {
+				"name" : "switch",
+				"id" : "kitchen light switch",
 				"status" : "default",
+				"messages" : {
+					"examine" : "A regular old light switch, in the 'off' position. You can't tell if it's connected to anything.",
+					"take" : "That's not how light switches work."
+				},
 				"states" : {
 					"default" : {
-						"descriptor" : "A large pumpkin sits by the door."
+						"descriptor" : "You see a light switch hanging from an electrical box near the door."
 					},
-					"take" : {
-						"descriptor" : "",
+					"flip" : {
+						"descriptor" : "You see a light switch hanging from an electrical box near the door.",
 						"from" : {
-							"default" : "You take the pumpkin."
-						}
-					},
-					"smash" : {
-						"descriptor" : "The gloppy remains of a smashed-up old pumpkin sit by the door.",
-						"from" : {
-							"default" : "You lift the pumpkin high over your head and slam it back down on the porch. It crumbles into little pumpkin chunklets."
-						}
+							"default" : "You gingerly flip the switch to the 'on' position. A sad, yellowing light in the ceiling flickers on weakly, but it helps.",
+							"flip" : "You flip the switch back into the 'off' position. The room goes dark."
+						},
+						"changes" : [
+							["rooms","kitchen","buffer",rooms["kitchen"]["entrance text"]],
+							["rooms","kitchen","entrance text",rooms["kitchen"]["buffer"]],
+							["rooms","kitchen","alt text",game["rooms"]["kitchen"]["buffer"]]
+						]
+					}
+				}
+			},
+			"can" : {
+				"name" : "can of food",
+				"id" : "dining room can1",
+				"status" : "default",
+				"messages" : {
+						"examine" : "Bush's baked beans. The vegetarian variety."
+				},
+				"take" : {
+					"default" : "You toss the can in your pack."
+				},
+				"states" : {
+					"default" : {
+						"descriptor" : "A can of beans is on the table."
 					}
 				}
 			}
-		}
-	},
-	"copy room": {
-		"type" : "room",
-		"name" : "the front of the cider brewery",
-		"look" : "The room where everybody makes their photocopies. Doesn't look like anyone's in there.",
-		
-		"exits": {
-			"east" : "town square"
-		},  
-		
-		"entrance text" : "The copy room - it's small, quiet, and smells faintly of ozone. Papers are strewn all over the floor. A poster hangs over the Xerox machine.",
-		"actions" : {
-			"inspect" : {
-				"poster" : {
-					"print" : "It is a black poster with bright, bold red lettering: \"DON'T MAKE COLOR COPIES UNLESS ABSOLUTELY NECESSARY.\""
-				}
+		},
+		"synonyms" : {
+			"items" : {
+				"can" : ["beans","food"]
 			}
 		}
-	} */
+	}
 }
