@@ -179,36 +179,28 @@ rooms={
 						"descriptor" : "You see a light switch hanging from an electrical box near the door.",
 						"from" : {
 							"default" : "You gingerly flip the switch to the 'on' position. A sad, yellowing light in the ceiling flickers on weakly, but it helps.",
-							"flip" : "You flip the switch back into the 'off' position. The room goes dark."
+							"flip" : "You gingerly flip the switch to the 'on' position. A sad, yellowing light in the ceiling flickers on weakly, but it helps.",
+							"other-flip" : "You flip the switch back into the 'off' position. The room goes dark."
 						},
 						"changes" : [
-							["rooms","kitchen","buffer",rooms["kitchen"]["entrance text"]],
-							["rooms","kitchen","entrance text",rooms["kitchen"]["buffer"]],
-							["rooms","kitchen","alt text",game["rooms"]["kitchen"]["buffer"]]
+							["rooms","kitchen","buffer",{"reference" : ["rooms","kitchen","entrance text"]}],
+							["rooms","kitchen","entrance text",{"reference" : ["rooms","kitchen","alt text"]}],
+							["rooms","kitchen","alt text",{"reference" : ["rooms","kitchen","buffer"]}],
+
+							["rooms","kitchen","buffer",{"reference" : ["rooms","kitchen","items","switch","states","flip","from","flip"]}],
+							["rooms","kitchen","items","switch","states","flip","from","flip",{"reference" : ["rooms","kitchen","items","switch","states","flip","from","other-flip"]}],
+							["rooms","kitchen","items","switch","states","flip","from","other-flip",{"reference" : ["rooms","kitchen","buffer"]}],
 						]
-					}
-				}
-			},
-			"can" : {
-				"name" : "can of food",
-				"id" : "dining room can1",
-				"status" : "default",
-				"messages" : {
-						"examine" : "Bush's baked beans. The vegetarian variety."
-				},
-				"take" : {
-					"default" : "You toss the can in your pack."
-				},
-				"states" : {
-					"default" : {
-						"descriptor" : "A can of beans is on the table."
 					}
 				}
 			}
 		},
 		"synonyms" : {
 			"items" : {
-				"can" : ["beans","food"]
+				"switch" : ["light"]
+			},
+			"actions" : {
+				"flip" : ["touch"]
 			}
 		}
 	}
