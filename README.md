@@ -1,1 +1,1 @@
-Requires [Bishop's Map](http://github.com/rabdill/bishops_map). Tested using [commit 140 from Feb. 25, 2015](https://github.com/rabdill/bishops_map/commit/b8f3199220b98254b6fe9f57b61df4ce369408b2).
+Requires [Bishop's Map](http://github.com/rabdill/bishops_map). Tested using [commit 159 from Mar. 2, 2015](https://github.com/rabdill/bishops_map/commits/master).

@@ -12,7 +12,6 @@ game={
 
 rooms={
 	"foyer" : {
-		"type" : "room",
 		"name" : "the ruined foyer",
 		"exits": {
 			"east": "living room"
@@ -29,7 +28,6 @@ rooms={
 	},
 
 	"living room": {
-		"type" : "room",
 		"name" : "what must be the living room",
 		"look" : "The town square, full of people and activities.",
 		"exits": {
@@ -45,7 +43,6 @@ rooms={
 			"photo" : {
 				"name" : "photograph of neighbor's family",
 				"id" : "neighbor photo",
-				"status" : "default",
 				"messages" : {
 						"take" : "You won't need that for anything.",
 						"examine" : "You wipe some dirt off the broken glass and peer into the familiar faces of the family that lived next to you for years. They're gone now, to who knows where..."
@@ -65,7 +62,6 @@ rooms={
 			"shovel" : {
 				"name" : "shovel",
 				"id" : "living room shovel",
-				"status" : "default",
 				"messages" : {
 						"examine" : "A medium-sized shovel, light enough to carry around but heavy enough to complete most shovel-tasks."
 				},
@@ -81,7 +77,6 @@ rooms={
 			"pile" : {
 				"name" : "pile of junk",
 				"id" : "living room pile",
-				"status" : "default",
 				"messages" : {
 						"examine" : "It's a big mound of material from broken wall, caved-in ceiling and simple household trash. Some of it fell here, but much looks to have been piled on purpose.",
 						"move" : "It'd take you ages to move it by hand. If only you had a tool..."
@@ -128,7 +123,6 @@ rooms={
 			"table" : {
 				"name" : "dining room table",
 				"id" : "dining room table",
-				"status" : "default",
 				"messages" : {
 					"examine" : "A heavy wooden table, stained dark brown beneath a thin coating of dust and ash.",
 					"take" : "It's a table. It's not going anywhere."
@@ -142,7 +136,6 @@ rooms={
 			"can" : {
 				"name" : "can of food",
 				"id" : "dining room can1",
-				"status" : "default",
 				"messages" : {
 						"examine" : "Bush's baked beans. The vegetarian variety."
 				},
@@ -168,14 +161,13 @@ rooms={
 		"exits": {
 			"west" : "dining room"
 		},
-		"entrance text" : "You're in the kitchen. The window is boarded up, so it's quite dark. You can make out the outline of a stove and a refrigerator in the darkness - neither have their doors.",
+		"entrance text" : "You're in the kitchen. The window is boarded up, so it's quite dark. You can make out the outline of a stove and a refrigerator in the darkness.",
 		"alt text" : "You're in the kitchen. The window is boarded up, but a dim yellow light provides enough light to see. A stove and a fridge are pretty much the only appliances around - neither have their doors.",
 		"title" : "@home base@",
 		"items" : {
 			"switch" : {
 				"name" : "switch",
 				"id" : "kitchen light switch",
-				"status" : "default",
 				"messages" : {
 					"examine" : "A regular old light switch, in the 'off' position. You can't tell if it's connected to anything.",
 					"take" : "That's not how light switches work."
