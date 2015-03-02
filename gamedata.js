@@ -18,7 +18,14 @@ rooms={
 			"east": "living room"
 		},
 		"entrance text" : "You stand in the sad, rubble-strewn foyer of what must have at one time been a very nice house. You'd never been invited inside.<p>\"This,\" you think, almost hopefully, \"will have to do.\"",
-		"title" : "@home base@"
+		"title" : "@home base@",
+		"actions" : {
+			"test" : {
+				"menus" : {
+					"move" : "testing"
+				}
+			}
+		}
 	},
 
 	"living room": {
@@ -76,7 +83,8 @@ rooms={
 				"id" : "living room pile",
 				"status" : "default",
 				"messages" : {
-						"examine" : "It's a big mound of material from broken wall, caved-in ceiling and simple household trash. Some of it fell here, but much looks to have been piled on purpose."
+						"examine" : "It's a big mound of material from broken wall, caved-in ceiling and simple household trash. Some of it fell here, but much looks to have been piled on purpose.",
+						"move" : "It'd take you ages to move it by hand. If only you had a tool..."
 				},
 				"states" : {
 					"default" : {
@@ -84,6 +92,7 @@ rooms={
 					},
 					"move" : {
 						"descriptor" : "Trash and drywall is strewn around in front of the doorway.",
+						"requires" : "shovel",
 						"from" : {
 							"default" : "You slowly push your way through the junk, tossing the little stuff aside and shoving the big pieces with your foot. Soon, the doorway is opened up."
 						},
@@ -203,5 +212,20 @@ rooms={
 				"flip" : ["touch"]
 			}
 		}
+	}
+}
+
+menus={
+	"testing" : {
+		"type" : "menu",
+		"description" : "This is the test of the new menu thing!",
+		"choices" : [
+			{
+				"choice" : "This is the first choice!",
+				"response type" : "move",
+				"destination" : "kitchen",
+				"premessage" : "PREMESSAGES WORK!"
+			}
+		]
 	}
 }
