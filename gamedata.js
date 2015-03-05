@@ -165,6 +165,18 @@ rooms={
 		"alt text" : "You're in the kitchen. The window is boarded up, but a dim yellow light provides enough light to see. A stove and a fridge are pretty much the only appliances around - neither have their doors.",
 		"title" : "@home base@",
 		"items" : {
+			"stairs" : {
+				"name" : "stairs",
+				"id" : "kitchen-stairs",
+				"messages" : {
+					"go" : "You try to go. It doesn't take long for you to realize that the huge gap in the stairs is going to keep you from going up the steps in their current state."
+				},
+				"states" : {
+					"default" : {
+						"descriptor" : "To the south, a cramped, winding staircase leads up into... somewhere."
+					}
+				}
+			},
 			"switch" : {
 				"name" : "switch",
 				"id" : "kitchen light switch",
@@ -198,7 +210,8 @@ rooms={
 		},
 		"synonyms" : {
 			"items" : {
-				"switch" : ["light"]
+				"switch" : ["light"],
+				"stairs" : ["west"]
 			},
 			"actions" : {
 				"flip" : ["touch"]
