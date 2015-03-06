@@ -10,7 +10,9 @@ function startAutomation() {
 		"take shovel",
 		"move pile with shovel",
 		"go north",
-		"go east"
+		"take wood",
+		"go east"/*,
+		"repair stairs with wood"*/
 	];
 
 	if (debugMode) {

@@ -14,7 +14,7 @@ rooms={
 	"foyer" : {
 		"name" : "the ruined foyer",
 		"exits": {
-			"east": "living room"
+			"east": ["living room","a big fat living room"]
 		},
 		"entrance text" : "You stand in the sad, rubble-strewn foyer of what must have at one time been a very nice house. You'd never been invited inside.<p>\"This,\" you think, almost hopefully, \"will have to do.\"",
 		"title" : "@home base@",
@@ -31,7 +31,7 @@ rooms={
 		"name" : "what must be the living room",
 		"look" : "The town square, full of people and activities.",
 		"exits": {
-			"west"  : "foyer"
+			"west"  : ["foyer"]
 		},
 		"changes" : [
 			["rooms","foyer","entrance text","You stand in the sad, rubble-strewn foyer of what must have at one time been a very nice house."],
@@ -92,7 +92,7 @@ rooms={
 							"default" : "You slowly push your way through the junk, tossing the little stuff aside and shoving the big pieces with your foot. Soon, the doorway is opened up."
 						},
 						"changes" : [
-							["rooms","living room","exits","north","dining room"]
+							["rooms","living room","exits","north",["dining room"]]
 						]
 					}
 				}
@@ -114,8 +114,8 @@ rooms={
 		"type" : "room",
 		"name" : "the dining room",
 		"exits": {
-			"south": "living room",
-			"east" : "kitchen"
+			"south": ["living room"],
+			"east" : ["kitchen"]
 		},
 		"entrance text" : "You're in the dining room. Faded floral wallpaper dangles from the walls.",
 		"title" : "@home base@",
@@ -172,7 +172,7 @@ rooms={
 		"type" : "room",
 		"name" : "the kitchen",
 		"exits": {
-			"west" : "dining room"
+			"west" : ["dining room"]
 		},
 		"entrance text" : "You're in the kitchen. The window is boarded up, so it's quite dark. You can make out the outline of a stove and a refrigerator in the darkness.",
 		"alt text" : "You're in the kitchen. The window is boarded up, but a dim yellow light provides enough light to see. A stove and a fridge are pretty much the only appliances around - neither have their doors.",
@@ -195,7 +195,7 @@ rooms={
 							"default" : "You lean one end of the plywood on the step and let it fall over the gap. It covers the gap perfectly."
 						},
 						"changes" : [
-							["rooms","kitchen","exits","south","top of steps"]
+							["rooms","kitchen","exits","south",["top of steps","a staircase winding upstairs somewhere, patched by a hunk of plywood"]]
 						]
 					}
 				}
@@ -234,7 +234,8 @@ rooms={
 		"synonyms" : {
 			"items" : {
 				"switch" : ["light"],
-				"stairs" : ["west","steps"]
+				"stairs" : ["south","steps"],
+				"south" : ["up"]
 			},
 			"actions" : {
 				"flip" : ["touch"]
@@ -242,9 +243,9 @@ rooms={
 		}
 	},
 	"top of steps" : {
-		"name" : "a winding staircase connecting the first and second floors",
+		"name" : "a winding staircase",
 		"exits" : {
-			"north" : "kitchen"
+			"north" : ["kitchen","a staircase winding downward to the kitchen, patched by a hunk of plywood"]
 		},
 		"title" : "@home base@",
 		"entrance text" : "You're at the top of the steps."
