@@ -133,6 +133,18 @@ rooms={
 					}
 				}
 			},
+			"wood" : {
+				"name" : "piece of plywood",
+				"id" : "dining room plywood",
+				"take" : {
+					"default" : "You heft up the piece of plywood to take along."
+				},
+				"states" : {
+					"default" : {
+						"descriptor" : "A wide piece of plywood is sitting in the corner."
+					}
+				}
+			},
 			"can" : {
 				"name" : "can of food",
 				"id" : "dining room can1",
@@ -151,7 +163,8 @@ rooms={
 		},
 		"synonyms" : {
 			"items" : {
-				"can" : ["beans","food"]
+				"can" : ["beans","food"],
+				"wood" : ["plywood", "board"]
 			}
 		}
 	},
@@ -174,6 +187,16 @@ rooms={
 				"states" : {
 					"default" : {
 						"descriptor" : "To the south, a cramped, winding staircase leads up into... somewhere."
+					},
+					"repair" : {
+						"descriptor" : "",
+						"requires" : "wood",
+						"from" : {
+							"default" : "You lean one end of the plywood on the step and let it fall over the gap. It covers the gap perfectly."
+						},
+						"changes" : [
+							["rooms","kitchen","exits","south","top of steps"]
+						]
 					}
 				}
 			},
@@ -211,12 +234,20 @@ rooms={
 		"synonyms" : {
 			"items" : {
 				"switch" : ["light"],
-				"stairs" : ["west"]
+				"stairs" : ["west","steps"]
 			},
 			"actions" : {
 				"flip" : ["touch"]
 			}
 		}
+	},
+	"top of steps" : {
+		"name" : "a winding staircase connecting the first and second floors",
+		"exits" : {
+			"north" : "kitchen"
+		},
+		"title" : "@home base@",
+		"entrance text" : "You're at the top of the steps."
 	}
 }
 
