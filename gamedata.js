@@ -200,7 +200,8 @@ rooms={
 							"default" : "You lean one end of the plywood on the step and let it fall over the gap. It covers the gap perfectly."
 						},
 						"changes" : [
-							["rooms","kitchen","exits","south",["top of steps","a staircase winding upstairs somewhere, patched by a hunk of plywood"]]
+							["rooms","kitchen","exits","south",["top of steps","a staircase winding upstairs somewhere, patched by a hunk of plywood"]],
+							["rooms","kitchen","items","wood", {"name" : "wood that's patching the steps","id" : "steps-wood","status" : "default","states" : {"default" : {"descriptor" : "","messages" : {"take" : "You were clever enough to fix the steps, don't break 'em again."}}}}]
 						]
 					}
 				}
@@ -256,7 +257,21 @@ rooms={
 			"north" : ["kitchen","a staircase winding downward to the kitchen, patched by a hunk of plywood"]
 		},
 		"title" : "@home base@",
-		"entrance text" : "You're at the top of the steps."
+		"entrance text" : "You're at the top of the steps.",
+		"items" : {
+			"wood" : {
+				"name" : "wood that's patching the steps",
+				"id" : "steps-wood",
+				"states" : {
+					"default" : {
+						"descriptor" : "",
+						"messages" : {
+							"take" : "If you move that now, how will you get down?"
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
