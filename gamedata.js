@@ -14,7 +14,7 @@ rooms={
 	"foyer" : {
 		"name" : "the ruined foyer",
 		"exits": {
-			"east": ["living room","a big fat living room"]
+			"east": ["living room"]
 		},
 		"entrance text" : "You stand in the sad, rubble-strewn foyer of what must have at one time been a very nice house. You'd never been invited inside.<p>\"This,\" you think, almost hopefully, \"will have to do.\"",
 		"title" : "@home base@",
@@ -38,18 +38,18 @@ rooms={
 			["rooms","living room","name","the living room"],
 			["rooms","living room","changes",[]]
 		],
-		"entrance text" : "You're in the living room. There's debris in here from the shelling, but it appears someone tried cleaning it up. They failed.",
+		"entrance text" : "You're in the living room. There's debris in here from the shelling; it appears someone tried cleaning it up. They failed.",
 		"items" : {
 			"photo" : {
 				"name" : "photograph of neighbor's family",
 				"id" : "neighbor photo",
-				"messages" : {
-						"take" : "You won't need that for anything.",
-						"examine" : "You wipe some dirt off the broken glass and peer into the familiar faces of the family that lived next to you for years. They're gone now, to who knows where..."
-				},
 				"states" : {
 					"default" : {
-						"descriptor" : "A photo sits in a dingy frame on a nearby table."
+						"descriptor" : "A photo sits in a dingy frame on a nearby table.",
+						"messages" : {
+							"take" : "You won't need that for anything.",
+							"examine" : "You wipe some dirt off the broken glass and peer into the familiar faces of the family that lived next to you for years. They're gone now, to who knows where..."
+						},
 					},
 					"smash" : {
 						"descriptor" : "The shattered remains of a picture frame are on the floor here.",
@@ -62,28 +62,28 @@ rooms={
 			"shovel" : {
 				"name" : "shovel",
 				"id" : "living room shovel",
-				"messages" : {
-						"examine" : "A medium-sized shovel, light enough to carry around but heavy enough to complete most shovel-tasks."
-				},
 				"take" : {
 					"default" : "You take the shovel. It's lighter than you expected it to be, and easy to carry."
 				},
 				"states" : {
 					"default" : {
-						"descriptor" : "A shovel leans against the couch."
+						"descriptor" : "A shovel leans against the couch.",
+						"messages" : {
+							"examine" : "A medium-sized shovel, light enough to carry around but heavy enough to complete most shovel-tasks."
+						}
 					}
 				}
 			},
 			"pile" : {
 				"name" : "pile of junk",
 				"id" : "living room pile",
-				"messages" : {
-						"examine" : "It's a big mound of material from broken wall, caved-in ceiling and simple household trash. Some of it fell here, but much looks to have been piled on purpose.",
-						"move" : "It'd take you ages to move it by hand. If only you had a tool..."
-				},
 				"states" : {
 					"default" : {
-						"descriptor" : "To the north, a huge pile of rubble blocks what looks like it might be a doorway."
+						"descriptor" : "To the north, a huge pile of rubble blocks what looks like it might be a doorway.",
+						"messages" : {
+							"examine" : "It's a big mound of material from broken wall, caved-in ceiling and simple household trash. Some of it fell here, but much looks to have been piled on purpose.",
+							"move" : "It'd take you ages to move it by hand. If only you had a tool..."
+						}
 					},
 					"move" : {
 						"descriptor" : "Trash and drywall is strewn around in front of the doorway.",
@@ -113,6 +113,7 @@ rooms={
 	"dining room" : {
 		"type" : "room",
 		"name" : "the dining room",
+		"look" : "It's the dining room!",
 		"exits": {
 			"south": ["living room"],
 			"east" : ["kitchen"]
@@ -123,13 +124,13 @@ rooms={
 			"table" : {
 				"name" : "dining room table",
 				"id" : "dining room table",
-				"messages" : {
-					"examine" : "A heavy wooden table, stained dark brown beneath a thin coating of dust and ash.",
-					"take" : "It's a table. It's not going anywhere."
-				},
 				"states" : {
 					"default" : {
-						"descriptor" : "An ornately carved table sits in the middle of the room, its top gouged and pock-marked by the shelling."
+						"descriptor" : "An ornately carved table sits in the middle of the room, its top gouged and pock-marked by the shelling.",
+						"messages" : {
+							"examine" : "A heavy wooden table, stained dark brown beneath a thin coating of dust and ash.",
+							"take" : "It's a table. It's not going anywhere."
+						}
 					}
 				}
 			},
@@ -141,22 +142,25 @@ rooms={
 				},
 				"states" : {
 					"default" : {
-						"descriptor" : "A wide piece of plywood is sitting in the corner."
+						"descriptor" : "A wide piece of plywood is sitting in the corner.",
+						"messages" : {
+							"examine" : "About three feet long, and thick enough to make you wonder if you'd be able to afford it if you had to buy it somewhere."
+						}
 					}
 				}
 			},
 			"can" : {
 				"name" : "can of food",
 				"id" : "dining room can1",
-				"messages" : {
-						"examine" : "Bush's baked beans. The vegetarian variety."
-				},
 				"take" : {
 					"default" : "You toss the can in your pack."
 				},
 				"states" : {
 					"default" : {
-						"descriptor" : "A can of beans is on the table."
+						"descriptor" : "A can of beans is on the table.",
+						"messages" : {
+							"examine" : "Bush's baked beans. The vegetarian variety."
+						}
 					}
 				}
 			}
@@ -181,12 +185,13 @@ rooms={
 			"stairs" : {
 				"name" : "stairs",
 				"id" : "kitchen-stairs",
-				"messages" : {
-					"go" : "You try to go. It doesn't take long for you to realize that the huge gap in the stairs is going to keep you from going up the steps in their current state."
-				},
 				"states" : {
 					"default" : {
-						"descriptor" : "To the south, a cramped, winding staircase leads up into... somewhere."
+						"descriptor" : "",
+						"messages" : {
+							"go" : "You try to head upstairs, but it doesn't take long for you to realize that the huge gap in the stairs is going to keep you from going up the steps in their current state.",
+							"repair" : "It doesn't look tricky to repair, if you had something to bridge the gap..."
+						}
 					},
 					"repair" : {
 						"descriptor" : "",
@@ -203,13 +208,13 @@ rooms={
 			"switch" : {
 				"name" : "switch",
 				"id" : "kitchen light switch",
-				"messages" : {
-					"examine" : "A regular old light switch, in the 'off' position. You can't tell if it's connected to anything.",
-					"take" : "That's not how light switches work."
-				},
 				"states" : {
 					"default" : {
-						"descriptor" : "You see a light switch hanging from an electrical box near the door."
+						"descriptor" : "You see a light switch hanging from an electrical box near the door.",
+						"messages" : {
+							"examine" : "A regular old light switch, in the 'off' position. You can't tell if it's connected to anything.",
+							"take" : "That's not how light switches work."
+						}
 					},
 					"flip" : {
 						"descriptor" : "You see a light switch hanging from an electrical box near the door.",
@@ -226,6 +231,8 @@ rooms={
 							["rooms","kitchen","buffer",{"reference" : ["rooms","kitchen","items","switch","states","flip","from","flip"]}],
 							["rooms","kitchen","items","switch","states","flip","from","flip",{"reference" : ["rooms","kitchen","items","switch","states","flip","from","other-flip"]}],
 							["rooms","kitchen","items","switch","states","flip","from","other-flip",{"reference" : ["rooms","kitchen","buffer"]}],
+
+							["rooms","kitchen","items","stairs","states","default","descriptor","To the south, a cramped, winding staircase leads up into... somewhere."]
 						]
 					}
 				}
@@ -238,7 +245,8 @@ rooms={
 				"south" : ["up"]
 			},
 			"actions" : {
-				"flip" : ["touch"]
+				"flip" : ["touch"],
+				"repair" : ["fix","patch"]
 			}
 		}
 	},
