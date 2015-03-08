@@ -10,6 +10,8 @@ game={
 	"home base" : "Sturdy Abandoned House"
 }
 
+menus={}
+
 rooms={
 	"foyer" : {
 		"name" : "the ruined foyer",
@@ -200,7 +202,7 @@ rooms={
 							"default" : "You lean one end of the plywood on the step and let it fall over the gap. It covers the gap perfectly."
 						},
 						"changes" : [
-							["rooms","kitchen","exits","south",["top of steps","a staircase winding upstairs somewhere, patched by a hunk of plywood"]],
+							["rooms","kitchen","exits","north",["top of steps","a staircase winding upstairs somewhere, patched by a hunk of plywood"]],
 							["rooms","kitchen","items","wood", {"name" : "wood that's patching the steps","id" : "steps-wood","status" : "default","states" : {"default" : {"descriptor" : "","messages" : {"take" : "You were clever enough to fix the steps, don't break 'em again."}}}}]
 						]
 					}
@@ -243,7 +245,7 @@ rooms={
 			"items" : {
 				"switch" : ["light"],
 				"stairs" : ["south","steps"],
-				"south" : ["up"]
+				"north" : ["up"]
 			},
 			"actions" : {
 				"flip" : ["touch"],
@@ -252,12 +254,13 @@ rooms={
 		}
 	},
 	"top of steps" : {
-		"name" : "a winding staircase",
+		"name" : "the top of a busted-up staircase",
 		"exits" : {
-			"north" : ["kitchen","a staircase winding downward to the kitchen, patched by a hunk of plywood"]
+			"south" : ["kitchen","a staircase winding downward to the kitchen, patched by a hunk of plywood"],
+			"west" : ["upstairs hallway"]
 		},
 		"title" : "@home base@",
-		"entrance text" : "You're at the top of the steps.",
+		"entrance text" : "You're at the top of the steps. You can hear the house's wasted skeleton creaking all around you.",
 		"items" : {
 			"wood" : {
 				"name" : "wood that's patching the steps",
@@ -271,21 +274,31 @@ rooms={
 					}
 				}
 			}
-		}
-	}
-}
-
-menus={
-	"testing" : {
-		"type" : "menu",
-		"description" : "This is the test of the new menu thing!",
-		"choices" : [
-			{
-				"choice" : "This is the first choice!",
-				"response type" : "move",
-				"destination" : "kitchen",
-				"premessage" : "PREMESSAGES WORK!"
+		},
+		"synonyms" : {
+			"items" : {
+				"south" : ["down"]
 			}
+		}
+	},
+	"upstairs hallway" : {
+		"name" : "a partially caved-in hallway",
+		"exits" : {
+			"east" : ["top of steps"],
+			"south" : ["master bedroom","a bedroom, probably"]
+		},
+		"title" : "@home base@",
+		"entrance text" : "You crouch and do a kind of crab-walk down the hall."
+	},
+	"master bedroom" : {
+		"name" : "bedroom",
+		"exits" : {
+			"north" : ["upstairs hallway"]
+		},
+		"title" : "@home base@",
+		"entrance text" : "bedroom",
+		"changes" : [
+			["rooms","upstairs hallway","exits","south",["master bedroom","the master bedroom"]]
 		]
 	}
 }
