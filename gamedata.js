@@ -221,6 +221,10 @@ rooms={
 					},
 					"flip" : {
 						"descriptor" : "You see a light switch hanging from an electrical box near the door.",
+						"messages" : {
+							"examine" : "A regular old light switch.",
+							"take" : "That's not how light switches work."
+						},
 						"from" : {
 							"default" : "You gingerly flip the switch to the 'on' position. A sad, yellowing light in the ceiling flickers on weakly, but it helps.",
 							"flip" : "You gingerly flip the switch to the 'on' position. A sad, yellowing light in the ceiling flickers on weakly, but it helps.",
@@ -235,7 +239,7 @@ rooms={
 							["rooms","kitchen","items","switch","states","flip","from","flip",{"reference" : ["rooms","kitchen","items","switch","states","flip","from","other-flip"]}],
 							["rooms","kitchen","items","switch","states","flip","from","other-flip",{"reference" : ["rooms","kitchen","buffer"]}],
 
-							["rooms","kitchen","items","stairs","states","default","descriptor","To the south, a cramped, winding staircase leads up into... somewhere."]
+							["rooms","kitchen","items","stairs","states","default","descriptor","To the north, a cramped, winding staircase leads up into... somewhere."]
 						]
 					}
 				}
@@ -296,9 +300,30 @@ rooms={
 			"north" : ["upstairs hallway"]
 		},
 		"title" : "@home base@",
-		"entrance text" : "bedroom",
+		"entrance text" : "You push some hanging wires out of the way and enter the house's master bedroom. Save for the exploded house surrounding it, it still appears eerily lived-in: It's hard to remember it's an abandoned house when the bed is made.",
 		"changes" : [
 			["rooms","upstairs hallway","exits","south",["master bedroom","the master bedroom"]]
-		]
+		],
+		"items" : {
+			"book" : {
+				"name" : "weird, light book",
+				"id" : "hidey-book",
+				"states" : {
+					"default" : {
+						"descriptor" : "A book seems to have fallen off the nightstand and is lying face-down.",
+						"messages" : {
+							"examine" : "You pick up the book and peer at the cover. It's a copy of 'Catch-22,' but the title isn't what grabs your attention -- despite how hefty it looks, it seems weirdly lightweight.",
+							"take" : "You grab the book to put it in your pack, but before you do, you can't help noticing a bizarre difference between how large it is and how little it weighs..."
+						}
+					},
+					"open" : {
+						"descriptor" : "A hollowed-out copy of 'Catch-22' is on the ground here, opened up to reveal a small metal key sitting in its nook.",
+						"from" : {
+							"default" : "You open it up. It's hollow! OMG! This prompt needs more text!"
+						}
+					}
+				}
+			}
+		}
 	}
 }
