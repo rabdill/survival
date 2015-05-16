@@ -65,7 +65,7 @@ rooms={
 				"name" : "shovel",
 				"id" : "living room shovel",
 				"take" : {
-					"default" : "You take the shovel. It's lighter than you expected it to be, and easy to carry."
+					"default" : {"message" : "You take the shovel. It's lighter than you expected it to be, and easy to carry."}
 				},
 				"states" : {
 					"default" : {
@@ -140,7 +140,7 @@ rooms={
 				"name" : "piece of plywood",
 				"id" : "dining room plywood",
 				"take" : {
-					"default" : "You heft up the piece of plywood to take along."
+					"default" : {"message" : "You heft up the piece of plywood to take along."}
 				},
 				"states" : {
 					"default" : {
@@ -155,7 +155,7 @@ rooms={
 				"name" : "can of food",
 				"id" : "dining room can1",
 				"take" : {
-					"default" : "You toss the can in your pack."
+					"default" : {"message" : "You toss the can in your pack."}
 				},
 				"states" : {
 					"default" : {
@@ -203,7 +203,7 @@ rooms={
 						},
 						"changes" : [
 							["rooms","kitchen","exits","north",["top of steps","a staircase winding upstairs somewhere, patched by a hunk of plywood"]],
-							["rooms","kitchen","items","wood", {"name" : "wood that's patching the steps","id" : "steps-wood","status" : "default","states" : {"default" : {"descriptor" : "","messages" : {"take" : "You were clever enough to fix the steps, don't break 'em again."}}}}]
+							["rooms","kitchen","items","wood", {"name" : "wood that's patching the steps","id" : "steps-wood","status" : "default","states" : {"default" : {"descriptor" : "","messages" : {"take" : {"message" : "You were clever enough to fix the steps, don't break 'em again."}}}}}]
 						]
 					}
 				}
@@ -306,7 +306,7 @@ rooms={
 		],
 		"items" : {
 			"book" : {
-				"name" : "weird, light book",
+				"name" : "book with compartment",
 				"id" : "hidey-book",
 				"states" : {
 					"default" : {
@@ -319,8 +319,39 @@ rooms={
 					"open" : {
 						"descriptor" : "A hollowed-out copy of 'Catch-22' is on the ground here, opened up to reveal a small metal key sitting in its nook.",
 						"from" : {
-							"default" : "You open it up. It's hollow! OMG! This prompt needs more text!"
-						}
+							"default" : "You open the book, expecting to see the familiar ravings of Yossarian and company. Instead, however, you discover that the pages of the book have been hollowed out to form a small, hidden box. Inside the box is a small key.",
+							"open" : "It's already open."
+						},
+						"messages" : {
+							"examine" : "'Catch-22,' except instead of a timeless war story, the book is a hollowed-out compartment. A small key sits inside.",
+							"take" : "You don't need the whole book, but that key might come in handy."
+						},
+						"changes" : [
+							["rooms","master bedroom","items","key",
+								{
+									"name" : "small key",
+									"id" : "book-from-key",
+									"status" : "default",
+									"states" : {
+										"default" : {
+											"descriptor" : "keykeykey",
+											"messages" : {
+												"examine" : "It's made of metal and seems, for reasons you can't quite put your finger on, to be quite old. It appears to be too small to fit a door or car."
+											}
+										}
+									},
+									"take" : {
+										"default" : {
+											"message" : "You put the key in your pocket.",
+											"changes" : [
+												["rooms","master bedroom","items","book","states","open","messages","take","You don't need to take that. The good parts got chopped out anyway."],
+												["rooms","master bedroom","items","book","states","open","messages","examine","'Catch-22,' except instead of a timeless war story, the book is a hollowed-out compartment. A key used to be in here."]
+											]
+										}
+									}
+								}
+							],
+						]
 					}
 				}
 			}
