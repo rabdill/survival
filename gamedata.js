@@ -89,7 +89,9 @@ rooms={
 					},
 					"move" : {
 						"descriptor" : "Trash and drywall is strewn around in front of the doorway.",
-						"requires" : "shovel",
+						"requires" : {
+							"item" : "shovel"
+						},
 						"from" : {
 							"default" : "You slowly push your way through the junk, tossing the little stuff aside and shoving the big pieces with your foot. Soon, the doorway is opened up."
 						},
@@ -120,7 +122,7 @@ rooms={
 			"south": ["living room"],
 			"east" : ["kitchen"]
 		},
-		"entrance text" : "You're in the dining room. Faded floral wallpaper dangles from the walls.",
+		"entrance text" : "You're in the dining room. Faded floral wallpaper dangles from the walls -- except for the left wall, which has a boarded-up door.",
 		"title" : "@home base@",
 		"items" : {
 			"table" : {
@@ -165,12 +167,39 @@ rooms={
 						}
 					}
 				}
+			},
+			"wallpaper" : {
+				"name" : "wallpaper",
+				"id" : "dining room wallpaper",
+				"states" : {
+					"default" : {
+						"descriptor" : "",
+						"messages" : {
+							"examine" : "It's not outdated, so to speak, just beat up. Autumn rain isn't usually kind to exposed wallpaper."
+						}
+					}
+				}
+			},
+			"door" : {
+				"name" : "door",
+				"id" : "small bedroom door",
+				"states" : {
+					"default" : {
+						"descriptor" : "",
+						"messages" : {
+							"examine" : "Tons of boards and wood scraps have been piled on top of each other in front of what must be a door. Someone realllly didn't want people to be able to get in here -- and from the looks of it, someone else realllly wanted to get in. The wood is chipped and gouged from where someone tried to break through.",
+							"open" : "You're not going to be able to get through this barricade. It's just too sturdy.",
+							"go" : "You're not going to be able to get through this barricade. It's just too sturdy."
+						}
+					}
+				}
 			}
 		},
 		"synonyms" : {
 			"items" : {
 				"can" : ["beans","food"],
-				"wood" : ["plywood", "board"]
+				"wood" : ["plywood", "board"],
+				"door" : ["west"]
 			}
 		}
 	},
@@ -191,13 +220,17 @@ rooms={
 					"default" : {
 						"descriptor" : "",
 						"messages" : {
+							"examine" : "They look stable, for the most part, but there's a hefty gap right in the middle that's going to keep you from climbing up... for now.",
 							"go" : "You try to head upstairs, but it doesn't take long for you to realize that the huge gap in the stairs is going to keep you from going up the steps in their current state.",
 							"repair" : "It doesn't look tricky to repair, if you had something to bridge the gap..."
 						}
 					},
 					"repair" : {
 						"descriptor" : "",
-						"requires" : "wood",
+						"requires" : {
+							"item" : "wood",
+							"consumed" : true
+						},
 						"from" : {
 							"default" : "You lean one end of the plywood on the step and let it fall over the gap. It covers the gap perfectly."
 						},
@@ -243,13 +276,41 @@ rooms={
 						]
 					}
 				}
+			},
+			"stove" : {
+				"name" : "stove",
+				"id" : "stove",
+				"states" : {
+					"default" : {
+						"descriptor" : "",
+						"messages" : {
+							"examine" : "A regular old gas stove... it would be more useful if there were any gas left. And if it had an oven door.",
+							"take" : "It's a STOVE."
+						}
+					}
+				}
+			},
+			"fridge" : {
+				"name" : "fridge",
+				"id" : "fridge",
+				"states" : {
+					"default" : {
+						"descriptor" : "",
+						"messages" : {
+							"examine" : "It's either unplugged or broken -- either way, probably not a safe place to keep your yogurt. The door appears to have been removed -- and without the proper tools.",
+							"take" : "You have enough problems without having to worry about lugging a FRIDGE around, don't you?"
+						}
+					}
+				}
 			}
 		},
 		"synonyms" : {
 			"items" : {
 				"switch" : ["light"],
-				"stairs" : ["south","steps"],
-				"north" : ["up"]
+				"stairs" : ["north","steps"],
+				"north" : ["up"],
+				"fridge" : ["refridgerator","icebox"],
+				"wood" : ["plywood", "board"]
 			},
 			"actions" : {
 				"flip" : ["touch"],
@@ -289,7 +350,8 @@ rooms={
 		"name" : "a partially caved-in hallway",
 		"exits" : {
 			"east" : ["top of steps"],
-			"south" : ["master bedroom","a bedroom, probably"]
+			"south" : ["master bedroom","a bedroom, probably"],
+			"west" : ["upstairs bathroom"]
 		},
 		"title" : "@home base@",
 		"entrance text" : "You crouch and do a kind of crab-walk down the hall."
@@ -303,14 +365,23 @@ rooms={
 		"entrance text" : "You push some hanging wires out of the way and enter the house's master bedroom. Save for the exploded house surrounding it, it still appears eerily lived-in: It's hard to remember it's an abandoned house when the bed is made.",
 		"changes" : [
 			["rooms","upstairs hallway","exits","south",["master bedroom","the master bedroom"]]
-		],
+		]
+	},
+	"upstairs bathroom" : {
+		"name" : "a bathroom",
+		"exits" : {
+			"east" : ["top of steps"],
+			"south" : ["master bedroom","a bedroom, probably"]
+		},
+		"title" : "@home base@",
+		"entrance text" : "You're in a dark old bathroom. The toilet is all bashed up, but the fancy old tub looks relatively untouched. Its brass claw-feet shine dimly in the light coming in the window.",
 		"items" : {
 			"book" : {
 				"name" : "book with compartment",
 				"id" : "hidey-book",
 				"states" : {
 					"default" : {
-						"descriptor" : "A book seems to have fallen off the nightstand and is lying face-down.",
+						"descriptor" : "A book sits on top of the toilet.",
 						"messages" : {
 							"examine" : "You pick up the book and peer at the cover. It's a copy of 'Catch-22,' but the title isn't what grabs your attention -- despite how hefty it looks, it seems weirdly lightweight.",
 							"take" : "You grab the book to put it in your pack, but before you do, you can't help noticing a bizarre difference between how large it is and how little it weighs..."
@@ -350,11 +421,11 @@ rooms={
 										}
 									}
 								}
-							],
+							]
 						]
 					}
 				}
 			}
 		}
-	}
+	},
 }
